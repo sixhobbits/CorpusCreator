@@ -19,12 +19,10 @@ class FeedDownloader:
         try:
             feed = feedparser.parse(self.feed_url)
             # TODO: Normalize language - different feeds may use different conventions to specify this
-            print feed['feed']
             langauge = feed.feed['language']
             feed_publication_date = feed.feed['updated']
             feed_title = feed.feed['title']
             for entry in feed['entries']:
-                print "..."
                 url = entry['link']
                 headline = entry['title']
                 article_date = entry['published']
